@@ -20,7 +20,12 @@ signupFeedbackForm.addEventListener('submit', (event) => {
 
     const email = document.getElementById('email').value;
     const feedbackMessage = document.getElementById('feedback-message').value;
-
+ 
+    // Basic validation (you'll likely want to enhance this)
+    if (!validateEmail(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
 
     // Add data to Firestore
     db.collection('submissions').add({
